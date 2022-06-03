@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-class CashbackHackServiceTest {
+public class CashbackHackServiceTest {
 
     @Test
     public void calculateRemainder() {
@@ -37,6 +37,15 @@ class CashbackHackServiceTest {
     public void calculateRemainderIf1000() {
         int amount = 0;
         int expected = 1000;
+        CashbackHackService service = new CashbackHackService();
+        int actual = service.remain(amount);
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void calculateRemainderIfOver1000() {
+        int amount = 1500;
+        int expected = 500;
         CashbackHackService service = new CashbackHackService();
         int actual = service.remain(amount);
         assertEquals(actual, expected);
